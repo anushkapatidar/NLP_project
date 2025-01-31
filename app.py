@@ -10,7 +10,7 @@ app = Flask(__name__, template_folder='templates')
 model = joblib.load('models/logistic_regression_model.pkl')
 vectorizer = joblib.load('models/tfidf_vectorizer.pkl')
 # Home route
-@app.route("https://textclassifier.netlify.app/")
+@app.route("https://textclassifier.netlify.app/templates/index.html")
 def home():
     return render_template("index.html")
 
