@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify, render_template
 import joblib
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='template')
 
 # Load your trained model and vectorizer
 model = joblib.load('models/logistic_regression_model.pkl')

@@ -66,11 +66,7 @@
                 color: #721c24;
                 border: 1px solid #f5c6cb;
             }
-            .neutral {
-                background-color: #fff3cd;
-                color: #856404;
-                border: 1px solid #ffeeba;
-            }
+            
             .confidence {
                 font-size: 14px;
                 margin-top: 10px;
@@ -107,8 +103,8 @@
     <div class="sample-reviews">
         <h3>Try Sample Reviews:</h3>
         <button onclick="useSampleReview('positive')">Positive Sample</button>
-        <!-- <button onclick="useSampleReview('negative')">Negative Sample</button> -->
-        <button onclick="useSampleReview('neutral')">Neutral Sample</button>
+        <button onclick="useSampleReview('negative')">Negative Sample</button>
+        
     </div>
 </div>
 
@@ -145,8 +141,7 @@
             const sampleReviews = {
                 positive: "This movie was absolutely fantastic! The acting was brilliant, and the storyline kept me engaged throughout. One of the best films I've seen this year.",
                 negative: "What a disappointment. The plot was confusing, the acting was terrible, and I couldn't wait for it to end. Complete waste of time and money.",
-                neutral: "The movie was okay. Some parts were good, others not so much. It had potential but didn't quite reach it. Might work for some viewers but not for others."
-            };
+                };
             
             document.getElementById('reviewText').value = sampleReviews[type];
         }
