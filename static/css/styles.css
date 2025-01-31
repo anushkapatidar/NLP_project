@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Movie Review Sentiment Classifier</title>
-        <style>
+
             body {
                 font-family: 'Arial', sans-serif;
                 max-width: 800px;
@@ -87,64 +81,4 @@
                 font-size: 14px;
                 display: inline-block;
             }
-        </style>
-    </head>
-<body>
-
-<div class="container">
-    <h1>Movie Review Sentiment Classifier</h1>
-    
-    <textarea id="reviewText" placeholder="Enter your movie review here..."></textarea>
-    
-    <button onclick="classifyReview()">Analyze Sentiment</button>
-    
-    <div id="result" class="result"></div>
-    
-    <div class="sample-reviews">
-        <h3>Try Sample Reviews:</h3>
-        <button onclick="useSampleReview('positive')">Positive Sample</button>
-        <button onclick="useSampleReview('negative')">Negative Sample</button>
-        
-    </div>
-</div>
-
-    <script>
-        async function classifyReview() {
-            const text = document.getElementById('reviewText').value.trim();
-            if (!text) {
-                alert('Please enter a review text');
-                return;
-            }
-
-            // Send the text to your Python backend for classification
-            const response = await fetch('/predict', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: text })
-            });
-            const result = await response.json();
-            displayResult(result);
-        }
        
-        function displayResult(result) {
-            const resultDiv = document.getElementById('result');
-            resultDiv.className = `result ${result.sentiment}`;
-
-            let message = `Sentiment: ${result.sentiment.toUpperCase()}`;
-            message += `<div class="confidence">Confidence: ${result.confidence}%</div>`;
-
-            resultDiv.innerHTML = message;
-            resultDiv.style.display = 'block';
-        }
-
-        function useSampleReview(type) {
-            const sampleReviews = {
-                positive: "This movie was absolutely fantastic! The acting was brilliant, and the storyline kept me engaged throughout. One of the best films I've seen this year.",
-                negative: "What a disappointment. The plot was confusing, the acting was terrible, and I couldn't wait for it to end. Complete waste of time and money.",
-                };
-            
-            document.getElementById('reviewText').value = sampleReviews[type];
-        }
-    </script>
-</body>
-</html>
