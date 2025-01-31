@@ -1,3 +1,0 @@
-[build]
-  publish = "build_directory"  # Adjust this to your front end build directory
-  command = "flask run"  # Or your front-end build command if any
